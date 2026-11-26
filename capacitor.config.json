@@ -1,0 +1,8 @@
+{
+  "appId": "com.arrowcube.escape",
+  "appName": "Arrow Cube",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#3a3a9c"
+  }
+}

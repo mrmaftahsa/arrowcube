@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#3b3a8f" />
+  <title>Arrow Cube</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./lib/three.module.min.js" } }
+  </script>
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="top">
+      <button id="btnMenu" class="icon" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div id="levelPill">LEVEL 1</div>
+      <div class="right">
+        <button id="btnHint" class="icon" aria-label="Hint">
+          <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+          <span id="hintCount" class="badge">3</span>
+        </button>
+        <button id="btnRestart" class="icon" aria-label="Restart">
+          <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v5h5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="queueWrap">
+      <div id="queue"></div>
+      <div id="queueLabel">QUEUE</div>
+    </div>
+
+    <div id="progress"><div id="progressFill"></div><span id="progressText">0 / 0</span></div>
+
+    <div id="tip">Swipe to rotate &nbsp;•&nbsp; Tap an arrow to launch it</div>
+  </div>
+
+  <div id="menu" class="overlay">
+    <div class="logo">
+      <div class="logoArrows">
+        <svg viewBox="0 0 120 60"><path d="M10 50V15h40" class="la1"/><path d="M42 5l12 10-12 10" class="la1h"/><path d="M110 10v35H70" class="la2"/><path d="M78 55L66 45l12-10" class="la2h"/></svg>
+      </div>
+      <h1>ARROW<br/>CUBE</h1>
+      <div class="sub">ESCAPE PUZZLE</div>
+    </div>
+    <button id="btnPlay" class="big">PLAY</button>
+    <div id="menuLevel">Level 1</div>
+    <div class="howto">
+      <div><b>Swipe</b> to rotate the cube</div>
+      <div><b>Tap</b> an arrow — if its path is clear it flies away</div>
+      <div><b>Blocked?</b> It drops into the queue. 3 of a colour clear out</div>
+      <div><b>4 slots full</b> = jammed. Plan your moves!</div>
+    </div>
+    <div class="menuRow">
+      <button id="btnSound" class="small">Sound: On</button>
+      <button id="btnReset" class="small ghost">Reset progress</button>
+    </div>
+  </div>
+
+  <div id="modal" class="overlay hidden">
+    <div class="card">
+      <div id="mTitle">LEVEL COMPLETE!</div>
+      <div id="mStars"><span>★</span><span>★</span><span>★</span></div>
+      <div id="mText"></div>
+      <button id="mBtn" class="big">NEXT</button>
+      <button id="mBtn2" class="small ghost">Menu</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
